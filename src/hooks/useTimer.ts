@@ -2,6 +2,7 @@ import { useEffect, useReducer, useRef } from 'react';
 import { ModeLabels } from '../context/TimerContext/TimerContext.enumerations';
 import { FIVE_MINUTES, TEN_MINUTES, TWENTY_FIVE_MINUTES } from '../context/TimerContext/TimerContext.constants';
 
+
 type TimerState = {
   mode: ModeLabels;
   modeDurationInSeconds: {
