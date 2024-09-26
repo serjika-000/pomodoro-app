@@ -94,7 +94,7 @@ export function useTimer() {
   }, [ state.isRunning ]);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout | null = null;
+    let timer: ReturnType<typeof setTimeout> | null = null
     if (state.isRunning && isRunningRef.current && state?.ongoingTimeInSeconds > 0) {
       timer = setInterval(() => {
         dispatch({ type: 'DECREMENT_TIMER' });
