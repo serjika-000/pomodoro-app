@@ -8,17 +8,26 @@ import App from './App';
 import { CustomThemeProvider, TimerProvider } from './context';
 import { theme } from './theme';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <CustomThemeProvider>
-        <TimerProvider>
-          <App/>
-        </TimerProvider>
-      </CustomThemeProvider>
-    </MuiThemeProvider>
-    <Analytics/>
-  </React.StrictMode>
-);
+// Get the root element
+const container = document.getElementById('root');
+
+// Check if the container exists before creating the root
+if (container) {
+  const root = ReactDOM.createRoot(container);
+  root.render(
+    <React.StrictMode>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <CustomThemeProvider>
+          <TimerProvider>
+            <App />
+          </TimerProvider>
+        </CustomThemeProvider>
+      </MuiThemeProvider>
+      <Analytics />
+    </React.StrictMode>
+  );
+} else {
+  // Handle the case where the root element is not found
+  console.error("Root element with id 'root' not found");
+}
